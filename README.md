@@ -54,7 +54,7 @@ Ezarri huerrengo parametroak erabili eta deskargatu proiektua.
    ```git push```
 
 
-https://spring.io/projects/spring-boot
+ikertu [Spring Boot](https://spring.io/projects/spring-boot)
 
 ## Redis datu basea ezarri
 
@@ -64,4 +64,4 @@ https://spring.io/projects/spring-boot
 
 ## Scrapinerako java libreria
 
-Bilaketa egin
+Bilaketa egin huerrengo klaserako
