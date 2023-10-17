@@ -1,4 +1,3 @@
-<img width="250" alt="image" src="https://github.com/mikeldalmauc/scrappingProiektua/assets/90103384/bb763c14-c6d9-47df-b727-4d3c5ba6744b">
 # scrappingProiektua
 
 Scrapping proiektua 
