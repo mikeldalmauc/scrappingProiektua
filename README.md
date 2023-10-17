@@ -45,10 +45,12 @@ Ezarri huerrengo parametroak erabili eta deskargatu proiektua.
 
 3. Proiektuarekin datorren java main fitzategia exekutatzen saiatuko gara,
 
-4. Igo aldaketak gitHubera.
+4. Igo aldaketak gitHubera hurrengo komandoak erabiliz.
    
    ```git add --all```
+   
    ```git commit -m "lehen commita"```
+   
    ```git push```
 
 
