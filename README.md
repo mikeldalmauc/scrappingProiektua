@@ -1,10 +1,10 @@
-# scrappingProiektua
+# Scrapping Proiektua
 
 Scrapping proiektua 
 
 Proiektu honen helburua software-sistema bat garatzeko urratsekin familiarizatzea da. Beraz, foku nagusia osagaien instalazioan, konfigurazioan eta konexioan ezarriko da, scrapping aplikazio baten garapenean baino. bigarrena Erabilera komuneko kasu batetik abiatutako testuinguru bat eskaintzeagaitik da, eta gainera, etorkizunean proiektu gehiagotarako balio daiteke.
 
-# Analisi fásea
+# Analisi fasea
 - Klasean adostu da, momentuz denek proiektu bera sortuko dugula irakaslearen gidaz, zailtasuna dela kontuan izanda lan fluxu hau erabiliz sortzen den lehenengo proiektua dela.
 - Adostu da java erabiltzea programazioan lantzen den legoaia delak gehien bat, Scrappinerako python egokiagoa izan arren.
 - Adostu da java spring-boot erabiltzea proiektu txikiak sortzeko eskeintzen dituen errestasunengaitik.
