@@ -26,7 +26,7 @@ Docker eta Visual studio instalatuta izan behar dituzu.
 
 2. Klikatu izkinako botoi urdinean Visual Studioren testuingura aldatzeko, hau da lokaletik makina batera aldatzeko, eta hautatu **New dev container** aukera.
 <img width="258" alt="image" src="https://github.com/mikeldalmauc/scrappingProiektua/assets/90103384/76315fd1-ef6d-4f7f-986c-9fe244797f5d">
-<img width="556" alt="image" src="https://github.com/mikeldalmauc/scrappingProiektua/assets/90103384/f40284cc-717c-426f-858c-ff88e016827f">
+<img width="562" alt="image" src="https://github.com/mikeldalmauc/scrappingProiektua/assets/90103384/19805a2d-8f24-49e0-8b77-90bac301dc36">
 
 3. Idatzi java eta hautatu irudikoa
 <img width="542" alt="image" src="https://github.com/mikeldalmauc/scrappingProiektua/assets/90103384/71fc2f1e-cfab-4721-baf7-c5c36f656976">
