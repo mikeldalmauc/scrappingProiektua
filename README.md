@@ -1,0 +1,2 @@
+# scrappingProiektua
+Scrapping proieketua 
