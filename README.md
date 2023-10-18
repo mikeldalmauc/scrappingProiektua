@@ -75,7 +75,7 @@ ikertu [Spring Boot](https://spring.io/projects/spring-boot)
 
 Maven dependentzia kudeaketarako programa bat da, javan erabiltzen dena, gure proiektuak maven erabiliko du eta honek hainbat comando eta erabilera ditu. Gure erabilera kasuak oso murriztuak izango dira beraz horiek ikusiko digutu soilik.
 
-1. Maven instalatu: Izan daiteke maven instalatuta ez izatea. Gure proiektuan fitxategi bat mvnw edo mvnw.cmd(windowserako) script batzuk datoz, hauek, maven komandoak erabiltzen lagunduko digu, baita gure proiektuak erabiltzen duen bertsioa aurkituko du eta behar dugun mavena deskargatuko du. 
+1. Maven instalatu: Izan daiteke maven instalatuta ez izatea. Gure proiektuan, **mvnw** eta **mvnw.cmd**(windowserako) izeneko script batzuk daude. Hauek, maven komandoak erabiltzen lagunduko digu, baita gure proiektuak erabiltzen duen bertsioa aurkituko du eta behar dugun mavena deskargatuko du.
 
     - ```./mvnw spring-boot:run```
 
@@ -83,8 +83,10 @@ Maven dependentzia kudeaketarako programa bat da, javan erabiltzen dena, gure pr
 
 ![Alt text](assets/image.png)
 
-3. Erabili ```Ctr + Shift + P``` eta maven execute command aukera maven **clean**, **install** edo **test** erabiltzeko.
-   
+3. Erabili ```Ctr + Shift + P``` eta bilatu eta aukeratu ** maven execute command** , maven **clean**, **install** edo **test** erabiltzeko.
+
+[Zer da maven](https://maven.apache.org/)
+[Pom referentzia](https://maven.apache.org/pom.html)
 
 ## Redis datu basea ezarri
 
@@ -97,7 +99,7 @@ Informazio gehiago parametroei buruz, [Nola sortu dockerren](https://hub.docker.
 
 ### Volumena aztertzen
 
-Ikusi nola volumen berri bat sortu den. Irudikatu volumen bat direktorio bat bezala, non fitzategi eta direktorio gehiago izan dezakegu.
+Antzemango duzunez, volumen berri bat sortu da.
 
 ![Alt text](assets/image2.png)
 
@@ -109,14 +111,14 @@ Gure kasuan volumena kontenedoreko **/data** helbidean izango da montatuta, term
 
 ![Alt text](assets/image4.png)
 
-Hurrengo pausoa, gure java proiektutik redis datu basera konektatzen saiatuko gara
+Hurrengo pausoan, gure java proiektutik redis datu basera konektatzen saiatuko gara
 
 ## Java eta redis konektatu
 
 Hurrengo [gida erabiliko dugu](https://redis.io/docs/clients/java/). 
 
 1. Aipatzen den dependentzia ```pom.xml``` fitxategira gehitu
-2. Erakusten den kodea ScrappingApplicationTest.java clasean zartu, funtzio berri bat sortuz eta @Tets etiketa erabiliz.
+2. Erakusten den kodea ScrappingApplicationTest.java klasean sartu, funtzio berri bat sortuz eta @Tets etiketa erabiliz.
 3. Saiatu maven test executatzen goiko atalan azaldu den moduan. Zer gertatzen da?
 4. Datu basearen helbide parametroak zuzendu behar ditugu, hurrengo puntuan.
 
