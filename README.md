@@ -120,10 +120,6 @@ Hurrengo [gida erabiliko dugu](https://redis.io/docs/clients/java/).
 3. Saiatu maven test executatzen goiko atalan azaldu den moduan. Zer gertatzen da?
 4. Datu basearen helbide parametroak zuzendu behar ditugu, hurrengo puntuan.
 
-
-Erabilera kasu aurreratuagoa:
-[Nola erabili javan, erabilera aurreratua kasua](https://www.baeldung.com/spring-data-redis-tutorial)
-
 ### Redis datu basearen helbidea
 
 Dockerren kontenedoreak sare virtualen bitartez konektatzen dira, hainbat sare mota daude dockerren eta hurrengo hiruilekoeta sakonago ikusiko ditugu, [dockerren sare motak YouTuben](https://youtu.be/bKFMS5C4CG0?si=2JvJv5apL_O3o6f5).
