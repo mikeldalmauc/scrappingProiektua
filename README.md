@@ -131,9 +131,6 @@ Momentuz jakin dezagun sarerik zehaztu ez dugunez kontenedoreak sortzerakoan, ha
 1. Erabili ```docker network``` agindua ikusteko zer aukera ditugun sareak kudeatzeko.
 2. Erabili ```docker network ls``` existitzen diren sareak zerrendatzeko.
 3. Erabili azkenik ```docker network inspect bridge``` bridge sarean konektaturiko gailuak ikusteko.
-
-![Alt text](assets/image5.png)
-
 4. Honekin ezagutu dezakegu zein ipv4 helbide erabili beharko dugun javan. Aldatu helbidea eta errepikatu testa, orain zuzena izan beharko litzateke.
 
 ## Scrapinerako java libreria
