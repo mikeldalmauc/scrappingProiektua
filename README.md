@@ -4,6 +4,21 @@ Scrapping proiektua
 
 Proiektu honen helburua software-sistema bat garatzeko urratsekin familiarizatzea da. Beraz, foku nagusia osagaien instalazioan, konfigurazioan eta konexioan ezarriko da, scrapping aplikazio baten garapenean baino. bigarrena Erabilera komuneko kasu batetik abiatutako testuinguru bat eskaintzeagaitik da, eta gainera, etorkizunean proiektu gehiagotarako balio daiteke.
 
+- [Scrapping Proiektua](#scrapping-proiektua)
+- [Analisi fasea](#analisi-fasea)
+- [Garapena](#garapena)
+  - [Githuben repositorioa sortu](#githuben-repositorioa-sortu)
+  - [Garapen ingurunea sortu](#garapen-ingurunea-sortu)
+  - [Java Boilerplate proiektua sortu](#java-boilerplate-proiektua-sortu)
+  - [Maven erabiltzen](#maven-erabiltzen)
+  - [Redis datu basea ezarri](#redis-datu-basea-ezarri)
+    - [Contenedorea sortu](#contenedorea-sortu)
+    - [Volumena aztertzen](#volumena-aztertzen)
+  - [Java eta redis konektatu](#java-eta-redis-konektatu)
+    - [Redis datu basearen helbidea](#redis-datu-basearen-helbidea)
+  - [Scrapinerako java libreria](#scrapinerako-java-libreria)
+
+
 # Analisi fasea
 - Klasean adostu da, momentuz denek proiektu bera sortuko dugula irakaslearen gidaz, zailtasuna dela kontuan izanda lan fluxu hau erabiliz sortzen den lehenengo proiektua dela.
 - Adostu da java erabiltzea programazioan lantzen den legoaia delak gehien bat, Scrappinerako python egokiagoa izan arren.
@@ -56,11 +71,72 @@ Ezarri huerrengo parametroak erabili eta deskargatu proiektua.
 
 ikertu [Spring Boot](https://spring.io/projects/spring-boot)
 
+## Maven erabiltzen
+
+Maven dependentzia kudeaketarako programa bat da, javan erabiltzen dena, gure proiektuak maven erabiliko du eta honek hainbat comando eta erabilera ditu. Gure erabilera kasuak oso murriztuak izango dira beraz horiek ikusiko digutu soilik.
+
+1. Maven instalatu: Izan daiteke maven instalatuta ez izatea. Gure proiektuan fitxategi bat mvnw edo mvnw.cmd(windowserako) script batzuk datoz, hauek, maven komandoak erabiltzen lagunduko digu, baita gure proiektuak erabiltzen duen bertsioa aurkituko du eta behar dugun mavena deskargatuko du. 
+
+    - ```./mvnw spring-boot:run```
+
+2. Maven extensioa ezarri Visual Studion
+
+![Alt text](assets/image.png)
+
+3. Erabili ```Ctr + Shift + P``` eta maven execute command aukera maven **clean**, **install** edo **test** erabiltzeko.
+   
+
 ## Redis datu basea ezarri
 
-- [Nola sortu dockerren](https://hub.docker.com/_/redis)
+### Contenedorea sortu
+1. Sortu dockerren redis datu base bat huerrengo komandoa erabilita
 
-- [Nola erabili javan:](https://redis.io/docs/clients/java/)
+```docker run --name some-redis -d redis redis-server --save 60 1 --loglevel warning```
+
+Informazio gehiago parametroei buruz, [Nola sortu dockerren](https://hub.docker.com/_/redis)
+
+### Volumena aztertzen
+
+Ikusi nola volumen berri bat sortu den. Irudikatu volumen bat direktorio bat bezala, non fitzategi eta direktorio gehiago izan dezakegu.
+
+![Alt text](assets/image2.png)
+
+Volumen honek **dump.rdb** fitxategi bat besterik ez du izango. Hau, datu basearen kopia bat da eta 60 segundoro eguneratuko da gutxienez aldaketa 1 izan bada, goiko komandoan horrela ezarri baidugu. Fitxategi hau garrantzitsua da datu basea berreskuratu edo gorde nahi izatekotan.
+
+![Alt text](assets/image3.png)
+
+Gure kasuan volumena kontenedoreko **/data** helbidean izango da montatuta, terminalaren bitartez ikusi dezakegu hau:
+
+![Alt text](assets/image4.png)
+
+Hurrengo pausoa, gure java proiektutik redis datu basera konektatzen saiatuko gara
+
+## Java eta redis konektatu
+
+Hurrengo [gida erabiliko dugu](https://redis.io/docs/clients/java/). 
+
+1. Aipatzen den dependentzia ```pom.xml``` fitxategira gehitu
+2. Erakusten den kodea ScrappingApplicationTest.java clasean zartu, funtzio berri bat sortuz eta @Tets etiketa erabiliz.
+3. Saiatu maven test executatzen goiko atalan azaldu den moduan. Zer gertatzen da?
+4. Datu basearen helbide parametroak zuzendu behar ditugu, hurrengo puntuan.
+
+
+Erabilera kasu aurreratuagoa:
+[Nola erabili javan, erabilera aurreratua kasua](https://www.baeldung.com/spring-data-redis-tutorial)
+
+### Redis datu basearen helbidea
+
+Dockerren kontenedoreak sare virtualen bitartez konektatzen dira, hainbat sare mota daude dockerren eta hurrengo hiruilekoeta sakonago ikusiko ditugu, [dockerren sare motak YouTuben](https://youtu.be/bKFMS5C4CG0?si=2JvJv5apL_O3o6f5).
+
+Momentuz jakin dezagun sarerik zehaztu ez dugunez kontenedoreak sortzerakoan, hauen **bridge** edo defektuzko sarean gehitu egin dira:
+
+1. Erabili ```docker network``` agindua ikusteko zer aukera ditugun sareak kudeatzeko.
+2. Erabili ```docker network ls``` existitzen diren sareak zerrendatzeko.
+3. Erabili azkenik ```docker network inspect bridge``` bridge sarean konektaturiko gailuak ikusteko.
+
+![Alt text](assets/image5.png)
+
+4. Honekin ezagutu dezakegu zein ipv4 helbide erabili beharko dugun javan. Aldatu helbidea eta errepikatu testa, orain zuzena izan beharko litzateke.
 
 ## Scrapinerako java libreria
 
