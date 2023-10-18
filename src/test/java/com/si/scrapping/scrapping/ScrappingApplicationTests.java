@@ -28,13 +28,15 @@ class ScrappingApplicationTests {
             jedis.set("foo", "bar");
             System.out.println(jedis.get("foo")); // prints bar
             
-            // Store & Retrieve a HashMap
+            // Store a HashMap
             Map<String, String> hash = new HashMap<>();;
             hash.put("name", "John");
             hash.put("surname", "Smith");
             hash.put("company", "Redis");
             hash.put("age", "29");
             jedis.hset("user-session:123", hash);
+
+            // Retrieve a HashMap
             System.out.println(jedis.hgetAll("user-session:123"));
             // Prints: {name=John, surname=Smith, company=Redis, age=29}
 			
