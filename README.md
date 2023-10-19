@@ -17,6 +17,12 @@ Proiektu honen helburua software-sistema bat garatzeko urratsekin familiarizatze
   - [Java eta redis konektatu](#java-eta-redis-konektatu)
     - [Redis datu basearen helbidea](#redis-datu-basearen-helbidea)
   - [Scrapinerako java libreria](#scrapinerako-java-libreria)
+  - [Oinarrizko funtzionaltasun bat implementatzen](#oinarrizko-funtzionaltasun-bat-implementatzen)
+    - [Helbideak gordetzeko objetua sortu](#helbideak-gordetzeko-objetua-sortu)
+    - [Serbitzua sortu](#serbitzua-sortu)
+  - [Web serbitzu bat sortu](#web-serbitzu-bat-sortu)
+  - [Web orrialde bat sortu](#web-orrialde-bat-sortu)
+  - [Proiektua txukuntzen](#proiektua-txukuntzen)
 
 
 # Analisi fasea
@@ -135,4 +141,64 @@ Momentuz jakin dezagun sarerik zehaztu ez dugunez kontenedoreak sortzerakoan, ha
 
 ## Scrapinerako java libreria
 
-Bilaketa egin huerrengo klaserako
+
+Jsoup erabiltzeko [gida hau](https://www.baeldung.com/java-with-jsoup) erabiliko dugu.
+
+1. Maven dependentzia gehitu
+2. Test metodo berri bat sortu eta kode txiki bat erabili ziurtatzeko libreria funtzionatzen duela.
+
+## Oinarrizko funtzionaltasun bat implementatzen
+
+Lehenego piezan konfiguratu eta martxan jarri ostean lehen implementazio basiko bat egingo dugu. 
+
+**Implementazioaren helburua, helbide bat arakatzea eta webguneko link guztiak gordetzea da.**
+
+### Helbideak gordetzeko objetua sortu
+Helbidea izeneko objetu bat sortu **Helbidea** izenarik, bi zelairekin eta metodo batekin
+
+- `String html`
+- `String href`
+
+- `public HashMap<String,String> hashMap()`: Itzuli hash map bat objetoaren bi zelaiekin, ikusi testetan dagoen adibidea.
+
+  
+### Serbitzua sortu
+
+Sortu zerbitzu klase bat hurrengo funtzioekin:
+[Nola sortu serbitzu bat](https://www.geeksforgeeks.org/spring-service-annotation-with-example/)
+
+`public List<Helbidea> scrapLinkList(Helbidea helbidea)`
+- **scrapLinkList**:
+Helbide bat emonda, itzuli web helbide horretan dauden helbide zerrenda, sortu test bat egiaztatzeko
+
+`public void saveLinkList(List<Helbidea> helbideak)`
+
+- **saveLinkList**: Helbide zerrenda bat emonda, gorde redisen helbide guztiak, sortu test bat helbideen gordeketa ziurtatzeko eta gero ezabatu redisetik testean sortutako datuak
+
+`public List<Helbidea> scrapAndSave(Helbidea helbidea)`
+
+- **scrapAndSave**: Helbide bat emonda, arakatu web horreko helbideak, gorde redisen eta itzuli helbide zerrenda. Sortu test bat emaitza egiaztatzeko.
+
+
+## Web serbitzu bat sortu
+
+[Erabili dezakegun gida](https://spring.io/guides/gs/rest-service/)
+
+1. Springek web serbitzu bat nola sortzen den ikertu
+2. Sortu zerbitzu bat, web helbide bat emonda, json bat itzultzen duena, link listarekin
+3. Frogatu serbitzua funtzionatzen duen postman edo bestelako HTTP kliente batekin. Izan daiteke dockerren porturen bat zabaldu beharra.
+
+
+## Web orrialde bat sortu
+
+1. Sortu web orrialde simple bat, funtzio bakarra izango duena, textu zelai bat izango du erdian eta search botoi bat.
+2. Botoia klikatzerakoan, sortu dugun web serbitzura deituko du eta zelaiko edukia bidaliko du. Eduki hau webgune baten helbidea bada, lista batekin erantzungo digu, erakutsi lista hau web horrialdean.
+
+## Proiektua txukuntzen
+
+Ordurarte zenbait pieza sortu ditugu, frogatu eta batera lanean martxan jarri ditugula hurrengo pausoak proiekturen despliegea erraztea izango da. Hau da, norbaiti proiektuaren repositoria entregatuz, era erraz batean dena martxan jartzeko gai izan behar da.
+
+1. Konfiguraketa parametroak, adibidez redisen helbidea
+2. [Java spring boot servitzariaren contendorea](https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application)
+3. web orrialdearen kontenedorea nola sortu
+4. kontendore guztia, web orrialdea, java back-end a eta redis datu basea batera desplegatu docker compose erabiliz (IRAKASLEAK EGINGO DU HAU)
