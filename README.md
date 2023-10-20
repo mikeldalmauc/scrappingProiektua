@@ -89,7 +89,7 @@ Maven dependentzia kudeaketarako programa bat da, javan erabiltzen dena, gure pr
 
 ![Alt text](assets/image.png)
 
-3. Erabili ```Ctr + Shift + P``` eta bilatu eta aukeratu ** maven execute command** , maven **clean**, **install** edo **test** erabiltzeko.
+3. Erabili ```Ctr + Shift + P``` eta bilatu eta aukeratu **maven execute command** , maven **clean**, **install** edo **test** erabiltzeko. **custom** aukeratzekotan `clean spring-boot:run`
 
 [Zer da maven](https://maven.apache.org/)
 [Pom referentzia](https://maven.apache.org/pom.html)
@@ -202,3 +202,4 @@ Ordurarte zenbait pieza sortu ditugu, frogatu eta batera lanean martxan jarri di
 2. [Java spring boot servitzariaren contendorea](https://anywhere.epam.com/en/blog/how-to-dockerize-spring-boot-application)
 3. web orrialdearen kontenedorea nola sortu
 4. kontendore guztia, web orrialdea, java back-end a eta redis datu basea batera desplegatu docker compose erabiliz (IRAKASLEAK EGINGO DU HAU)
+5. [Docker on Docker](https://blog.packagecloud.io/3-methods-to-run-docker-in-docker-containers/#:~:text=Docker%20In%20Docker%20(also%20known,and%20create%20sandboxed%20container%20environments.)
