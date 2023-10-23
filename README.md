@@ -109,7 +109,7 @@ Antzemango duzunez, volumen berri bat sortu da.
 
 ![Alt text](assets/image2.png)
 
-Volumen honek **dump.rdb** fitxategi bat besterik ez du izango. Hau, datu basearen kopia bat da eta 60 segundoro eguneratuko da gutxienez aldaketa 1 izan bada, goiko komandoan horrela ezarri baidugu. Fitxategi hau garrantzitsua da datu basea berreskuratu edo gorde nahi izatekotan.
+Volumen honek **dump.rdb** fitxategi bat besterik ez du izango. Hau, datu basearen kopia bat da eta 60 segundoro eguneratuko da **gutxienez aldaketa 1 izan bada**, goiko komandoan horrela ezarri baidugu. Fitxategi hau garrantzitsua da datu basea berreskuratu edo gorde nahi izatekotan.
 
 ![Alt text](assets/image3.png)
 
@@ -132,12 +132,13 @@ Hurrengo [gida erabiliko dugu](https://redis.io/docs/clients/java/).
 
 Dockerren kontenedoreak sare virtualen bitartez konektatzen dira, hainbat sare mota daude dockerren eta hurrengo hiruilekoeta sakonago ikusiko ditugu, [dockerren sare motak YouTuben](https://youtu.be/bKFMS5C4CG0?si=2JvJv5apL_O3o6f5).
 
-Momentuz jakin dezagun sarerik zehaztu ez dugunez kontenedoreak sortzerakoan, hauen **bridge** edo defektuzko sarean gehitu egin dira:
+Momentuz, jakin dezagun, sarerik zehaztu ez dugunez kontenedoreak sortzerakoan, hauek, **bridge** edo defektuzko sarera gehitu dira:
 
 1. Erabili ```docker network``` agindua ikusteko zer aukera ditugun sareak kudeatzeko.
 2. Erabili ```docker network ls``` existitzen diren sareak zerrendatzeko.
 3. Erabili azkenik ```docker network inspect bridge``` bridge sarean konektaturiko gailuak ikusteko.
-4. Honekin ezagutu dezakegu zein ipv4 helbide erabili beharko dugun javan. Aldatu helbidea eta errepikatu testa, orain zuzena izan beharko litzateke.
+4. Honekin ezagutu dezakegu zein ipv4 helbide erabili beharko dugun javan.
+5. Aldatu helbidea javako kodean eta errepikatu testa, orain zuzena izan beharko litzateke.
 
 ## Scrapinerako java libreria
 
@@ -149,7 +150,7 @@ Jsoup erabiltzeko [gida hau](https://www.baeldung.com/java-with-jsoup) erabiliko
 
 ## Oinarrizko funtzionaltasun bat implementatzen
 
-Lehenego piezan konfiguratu eta martxan jarri ostean lehen implementazio basiko bat egingo dugu. 
+Lehenego piezak konfiguratu eta martxan jarri ditugula, implementazio txiki bat egingo dugu. 
 
 **Implementazioaren helburua, helbide bat arakatzea eta webguneko link guztiak gordetzea da.**
 
@@ -167,13 +168,13 @@ Helbidea izeneko objetu bat sortu **Helbidea** izenarik, bi zelairekin eta metod
 Sortu zerbitzu klase bat hurrengo funtzioekin:
 [Nola sortu serbitzu bat](https://www.geeksforgeeks.org/spring-service-annotation-with-example/)
 
-`public List<Helbidea> scrapLinkList(Helbidea helbidea)`
-- **scrapLinkList**:
+`public List<Helbidea> scrap(Helbidea helbidea)`
+- **scrap**:
 Helbide bat emonda, itzuli web helbide horretan dauden helbide zerrenda, sortu test bat egiaztatzeko
 
-`public void saveLinkList(List<Helbidea> helbideak)`
+`public void save(List<Helbidea> helbideak)`
 
-- **saveLinkList**: Helbide zerrenda bat emonda, gorde redisen helbide guztiak, sortu test bat helbideen gordeketa ziurtatzeko eta gero ezabatu redisetik testean sortutako datuak
+- **save**: Helbide zerrenda bat emonda, gorde redisen helbide guztiak, sortu test bat helbideen gordeketa ziurtatzeko eta gero ezabatu redisetik testean sortutako datuak
 
 `public List<Helbidea> scrapAndSave(Helbidea helbidea)`
 

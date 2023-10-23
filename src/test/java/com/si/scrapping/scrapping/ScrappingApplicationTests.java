@@ -28,19 +28,27 @@ class ScrappingApplicationTests {
         JedisPool pool = new JedisPool("172.17.0.4", 6379);
 
         try (Jedis jedis = pool.getResource()) {
+
             // Store & Retrieve a simple string
-            jedis.set("foo", "bar");
-            System.out.println(jedis.get("foo")); // prints bar
+            jedis.set("test.foo", "bar");
+
+            assertEquals("bar", jedis.get("test.foo"));
             
-            // Store & Retrieve a HashMap
+            jedis.del("test.foo");
+
+            // Store and Retrieve a HashMap
             Map<String, String> hash = new HashMap<>();;
             hash.put("name", "John");
             hash.put("surname", "Smith");
             hash.put("company", "Redis");
             hash.put("age", "29");
-            jedis.hset("user-session:123", hash);
-            System.out.println(jedis.hgetAll("user-session:123"));
-            // Prints: {name=John, surname=Smith, company=Redis, age=29}
+            
+            jedis.hset("test.user.John", hash);
+
+            assertEquals(hash, jedis.hgetAll("test.user.John"));
+
+            jedis.del("test.user.John");
+
         }
         
     }
