@@ -62,7 +62,8 @@ class ScrappingApplicationTests {
 
         Document doc = Jsoup.connect(url).get();
 
-        doc.select("a").forEach(a -> System.out.println(a.html() + ":" + a.attr("href")));
+        doc.select("a")
+            .forEach(a -> System.out.println(a.html() + ":" + a.attr("href")));
     }   
 
 
