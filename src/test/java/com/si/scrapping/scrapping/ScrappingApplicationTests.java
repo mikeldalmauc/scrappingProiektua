@@ -4,11 +4,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import redis.clients.jedis.Jedis;
@@ -16,6 +18,9 @@ import redis.clients.jedis.JedisPool;
 
 @SpringBootTest
 class ScrappingApplicationTests {
+
+    @Autowired
+    public ScrappingService scrappingService;
 
 	@Test
 	void contextLoads() {
@@ -67,5 +72,12 @@ class ScrappingApplicationTests {
     }   
 
 
+    @Test
+    void scrapTest(){
 
+        Helbidea test = new Helbidea("https://www.google.com", null);
+        List<Helbidea> emaitza = scrappingService.scrap(test);
+
+        emaitza.forEach(helbidea -> System.out.println(helbidea.toString()));
+    }
 }
