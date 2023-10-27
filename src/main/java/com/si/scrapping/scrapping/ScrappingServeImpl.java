@@ -8,6 +8,9 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Service;
 
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
+
 @Service
 public class ScrappingServeImpl implements ScrappingService {
 
@@ -32,8 +35,15 @@ public class ScrappingServeImpl implements ScrappingService {
 
     @Override
     public void save(List<Helbidea> helbideak) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'save'");
+        
+         JedisPool pool = new JedisPool("172.17.0.2", 6379);
+
+        try (Jedis jedis = pool.getResource()) {
+
+            helbideak.forEach(h -> {
+                jedis.hset(h.getHref(), h.toMap());
+            });
+        }
     }
 
     @Override
